@@ -31,7 +31,7 @@ export const getProducts = (
   try {
     dispatch({ type: ALL_PRODUCT_REQUEST });
 
-    let url = `https://n8wktq-8080.csb.app/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${ratings}`;
+    let url = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${ratings}`;
 
     if (category && category !== "Remove all") {
       url += `&category=${category}`;
@@ -51,7 +51,7 @@ export const getProductsDetails = (id) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `https://n8wktq-8080.csb.app/api/v1/product/${id}`
+      `/api/v1/product/${id}`
     );
     console.log(data);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data.product });
@@ -70,7 +70,7 @@ export const getAdminProduct = () => async (dispatch) => {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
 
     const { data } = await axios.get(
-      "https://n8wktq-8080.csb.app/api/v1/admin/products"
+      "/api/v1/admin/products"
     );
     console.log("from action ", data);
     dispatch({
@@ -95,7 +95,7 @@ export const createProduct = (productData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://n8wktq-8080.csb.app/api/v1/admin/product/new`,
+      `/api/v1/admin/product/new`,
       productData,
       config
     );
@@ -122,7 +122,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://n8wktq-8080.csb.app/api/v1/admin/product/${id}`,
+      `/api/v1/admin/product/${id}`,
       productData,
       config
     );
@@ -145,7 +145,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
     const { data } = await axios.delete(
-      `https://n8wktq-8080.csb.app/api/v1/admin/product/${id}`
+      `/api/v1/admin/product/${id}`
     );
 
     dispatch({
