@@ -88,7 +88,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const {data} = await axios.get(`/api/v1/me`);
+    const {data} = await axios.get(`https://n8wktq-8080.csb.app/api/v1/me`);
 
     console.log("from load user", data);
 
