@@ -31,7 +31,7 @@ export const getProducts = (
   try {
     dispatch({ type: ALL_PRODUCT_REQUEST });
 
-    let url = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${ratings}`;
+    let url = `https://n8wktq-8080.csb.app/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&rating[gte]=${ratings}`;
 
     if (category && category !== "Remove all") {
       url += `&category=${category}`;
@@ -51,7 +51,7 @@ export const getProductsDetails = (id) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
     const { data } = await axios.get(
-      `/api/v1/product/${id}`
+      `https://n8wktq-8080.csb.app/api/v1/product/${id}`
     );
     console.log(data);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data.product });
