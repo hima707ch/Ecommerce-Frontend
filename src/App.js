@@ -50,7 +50,7 @@ export default function App() {
   async function getStripeApiKey() {
     try{
     const { data } = await axios.get(
-      "https://n8wktq-8080.csb.app/api/v1/stripeapikey"
+      "/api/v1/stripeapikey"
     );
 
     setStripeApiKey(data.stripeApiKey);
