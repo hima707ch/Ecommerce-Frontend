@@ -48,11 +48,16 @@ export default function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
+    try{
     const { data } = await axios.get(
       "https://n8wktq-8080.csb.app/api/v1/stripeapikey"
     );
 
     setStripeApiKey(data.stripeApiKey);
+    }
+    catch(err){
+      console.log(err);
+    }
   }
 
   useEffect(() => {
