@@ -88,7 +88,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const {data} = await axios.get(`https://n8wktq-8080.csb.app/api/v1/me`);
+    const {data} = await axios.get(`/api/v1/me`);
 
     console.log("from load user", data);
 
@@ -120,7 +120,7 @@ export const updateProfile = (userData) => async (dispatch) => {
     console.log("ram from up");
 
     const { data } = await axios.put(
-      `/v1/me/update`,
+      `api/v1/me/update`,
       userData,
       config
     );
@@ -188,7 +188,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/v1/password/reset/${token}`,
+      `api/v1/password/reset/${token}`,
       passwords,
       config
     );
