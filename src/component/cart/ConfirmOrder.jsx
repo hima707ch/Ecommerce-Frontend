@@ -60,7 +60,7 @@ const ConfirmOrder = () => {
     };
     console.log("1");
     const { data } = await axios.post(
-      "https://n8wktq-8080.csb.app/api/v1/payment/process",
+      "/api/v1/payment/process",
       { totalPrice },
       headers
     );
