@@ -92,12 +92,19 @@ export default function App() {
         <ProtectedRoute path="/password/update" element={<UpdatePassword />} />
         <ProtectedRoute path="/shipping" element={<Shipping />} />
         <ProtectedRoute path="/orders" element={<MyOrders />} />
-        <ProtectedRoute path="/order/:id" element={<OrderDetails />} />
+        
         <ProtectedRoute
           exact
           path="/order/confirm"
           element={<ConfirmOrder />}
         />
+
+        <ProtectedRoute exact path="/order/:id" render={(props)=>{
+          const {id} = props.match.id;
+          if(id === "confirm") return <ConfirmOrder/>
+          else return <OrderDetails/>
+        }} />
+            
         <ProtectedRoute path="/sucess" element={<OrderSuccess />} />
 
         {stripeApiKey && (
