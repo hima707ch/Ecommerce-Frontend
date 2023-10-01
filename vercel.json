@@ -1,5 +1,0 @@
-{
-  "routes": [
-    { "src": "/api/(.*)", "dest": "https://n8wktq-8080.csb.app" }
-  ]
-}
