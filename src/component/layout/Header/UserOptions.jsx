@@ -39,7 +39,7 @@ const handleAlert = (msg, type) => {
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser }
   ];
 
-  if (user && user.role === "admin") {
+  if (user && user.role && user.role === "admin") {
     options.unshift({
       icon: <DashboardIcon />,
       name: "Dashboard",
