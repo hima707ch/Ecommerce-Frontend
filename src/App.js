@@ -78,6 +78,16 @@ export default function App() {
 
   }, []);
 
+
+  // async function fetchdata(){
+  //   const resp = await axios.get(`/api/v1/products`)
+  // }
+
+  // useEffect(() => {
+  //   fetchdata()
+  // }, [])
+  
+
   return (
     <Fragment>
 

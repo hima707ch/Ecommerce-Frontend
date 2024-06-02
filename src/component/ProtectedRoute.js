@@ -11,7 +11,7 @@ const ProtectedRoute = ({ isAdmin, element, path }) => {
         <Routes>
           <Route
             path = {path}
-            element = {isAuthenticated && (isAdmin === true ?  user.role === "admin" : true) ? element : (<Navigate to="/login" replace = {true} />)}
+            element = {isAuthenticated && (isAdmin === true ?  user && user.role === "admin" : true) ? element : (<Navigate to="/login" replace = {true} />)}
           />
         </Routes>
       )}
